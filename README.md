@@ -1,2 +1,2 @@
 # BasketballProject
-A project for STA 141B, that is hosted at (website here). 
+A project for STA 141B, that is hosted at https://ckchiruka.github.io/projects/final-project.html.  
