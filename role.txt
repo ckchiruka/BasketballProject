@@ -1,0 +1,13 @@
+bball_per_game2 = bball_per_game.apply(lambda x: pd.to_numeric(x, errors='ignore'))
+bball_per_game2 = bball_per_game2.loc[bball_per_game2['MP'] > 1]
+bball_per_game2.fillna(0, inplace=True)
+bball_per_game2 = bball_per_game2.set_index(bball_per_game2['Player'])
+bball_per_game2 = bball_per_game2.drop(['Player','Pos','Age','Tm','G','GS','MP', 'PS/G',
+                                        'PF','FGA','FG','FG%', '3P','2P','FT', 'ORB', 'DRB', 'eFG%'
+                                        ], axis = 1)
+bball_per_game2.head()
+
+df = bball_per_game2.loc[bball_per_game2['Year'] == 2016]
+dist = pdist(df, 'euclidean')
+df_dist = pd.DataFrame(squareform(dist), index = df.index, columns = df.index)
+df_dist['Festus Ezeli'].sort_values().head()
